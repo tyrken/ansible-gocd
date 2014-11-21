@@ -35,12 +35,12 @@
   copy: src=thoughtworks-go-download.repo
         dest=/etc/yum.repos.d/
         owner=root group=root mode=0644
-  when: ansible_pkg_mgr == 'yum'
+  when: ansible_pkg_mgr == 'yum' and GOCD_CONFIGURE_THOUGHTWORKS_REPO == true
 
 - name: thoughtworks go apt repository
   sudo: yes
   apt_repository: repo='deb http://dl.bintray.com/gocd/gocd-deb/ /' state=present
-  when: ansible_pkg_mgr == 'apt'
+  when: ansible_pkg_mgr == 'apt' and GOCD_CONFIGURE_THOUGHTWORKS_REPO == true
 
 # Note: If the user or group exists, but under another ID, Ansible will try and change it.
 - name: add go group

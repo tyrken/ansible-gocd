@@ -110,7 +110,9 @@ This role can manage the base Go configuration, without losing agent or pipeline
   * GOCD_SSH_PRIVATE_KEY - Fully qualified path to the private key to use.  Both will be stored in /var/go/.ssh.  
   * GOCD_SSH_PUBLIC_KEY - Fully qualified path to the public key.  This is the key you should upload to Github.
   * GOCD_SSH_KNOWN_DOMAIN - Domain to import as a known host, defaults to github.com but can override for internal git servers.
-  
+
+* yum/apt repos - added GOCD_CONFIGURE_THOUGHTWORKS_REPO to control adding Thoughtwork's repo to your repo list before install
+
 ### Agents
 * By default one agent will be installed per CPU core available.  You can override this by setting GOCD_AGENT_INSTANCES to a specific value.
 * When multiple agents are installed each is controlled by it's own service (/etc/init.d/go-agentX). If you wish to uninstall the package, you'll need to manually remove those services as they're not recognized by the RPM/DEB.
